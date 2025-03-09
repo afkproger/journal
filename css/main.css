@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url('../imgs/main.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: calc(100% - 20px);
+}
+
+header {
+    padding: 10px;
+}
+
+.header-container {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.button:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.button:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    padding-left: 20px;
+}
+
+.journal-text {
+    font-family: "Bauhaus 93", cursive;
+    font-size: 220px;
+    color: white;
+    text-decoration: overline;
+    text-decoration-thickness: 2px;
+    opacity: 0;
+    margin: 10px;
+    transform: translateX(-50px);
+    animation: slideIn 0.8s ease-out 0.8s forwards;
+    position: absolute;
+    transform: translateY(-50px);
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-out 0.6s forwards;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.text {
+    padding: 10px;
+}

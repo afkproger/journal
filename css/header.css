@@ -1,0 +1,24 @@
+.header-container {
+    width: calc(100% - 20px);
+    padding: 10px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.journal-text {
+    font-family: "Bauhaus 93", cursive;
+    font-size: 30px;
+    color: white;
+    margin: 10px;
+}
+.journal-text:hover {
+    cursor: pointer;
+}
+.button{
+    height: 40px;
+    width: 200px;
+}

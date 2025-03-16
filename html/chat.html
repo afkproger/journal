@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Чаты</title>
+  <link href="https://fonts.cdnfonts.com/css/bauhaus-93" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../imgs/favicon.ico">
+  <link rel="stylesheet" href="../css/chat.css">
+  <link rel="stylesheet" href="../css/button.css">
+  <link rel="stylesheet" href="../css/header.css">
+</head>
+<body>
+<header>
+  <div class="header-container">
+    <p class="journal-text" data-header-workspace > journal </p>
+    <button class="button" data-header-chats >Чаты</button>
+    <button class="button" data-header-notes >Записи</button>
+    <button class="button" data-header-profile>Личный кабинет</button>
+  </div>
+</header>
+
+<div class="chat-container">
+  <div class="chat-header">
+    <h2 id="chat-user-name">Чат с Иван Иванов</h2>
+  </div>
+  <div class="chat-messages">
+    <div class="message">Привет!</div>
+    <div class="message">Как дела?</div>
+  </div>
+  <div class="chat-input">
+    <input type="text" placeholder="Введите сообщение...">
+    <button class="button">Отправить</button>
+  </div>
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

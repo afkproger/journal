@@ -8,7 +8,7 @@ const notes = document.querySelector('[data-header-notes]');
 const workspace = document.querySelector('[data-header-workspace]');
 
 profile.addEventListener('click', function() {
-    window.location.href = `../html/chat.html`;
+    window.location.href = `../html/profile.html`;
 });
 
 chats.addEventListener('click', function() {

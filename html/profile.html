@@ -42,49 +42,7 @@
         <button class="button delete-button" onclick="logout()">Выйти из аккаунта</button>
     </div>
 </div>
-
-<script>
-
-    openPage = (url) => {
-        window.location.href = url;
-    }
-
-    const profile = document.querySelector('[data-header-profile]');
-    const chats = document.querySelector('[data-header-chats]');
-    const note = document.querySelector('[data-header-notes]');
-    const workspace = document.querySelector('[data-header-workspace]');
-
-    profile.addEventListener('click', function() {
-        window.location.href = `../html/profile.html`;
-    });
-
-    chats.addEventListener('click', function() {
-        window.location.href = `../html/chats.html`;
-    });
-
-    note.addEventListener('click', function() {
-        window.location.href = `../html/note.html`;
-    });
-
-    workspace.addEventListener('click', function() {
-        window.location.href = `../html/workspace.html`;
-    });
-
-    // Функция для добавления в друзья
-    function addFriend() {
-        const friendUsername = document.querySelector('.friend-input input').value;
-        if (friendUsername) {
-            alert(`Запрос на добавление в друзья отправлен пользователю ${friendUsername}`);
-        } else {
-            alert('Введите никнейм!');
-        }
-    }
-
-    // Функция для выхода из аккаунта
-    function logout() {
-        alert('Вы вышли из аккаунта');
-        // Здесь можно добавить перенаправление на страницу входа
-    }
-</script>
+<script src="../js/profile.js"></script>
+<script src="../js/navigation.js"></script>
 </body>
 </html>

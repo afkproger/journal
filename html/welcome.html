@@ -12,8 +12,8 @@
 <body>
 <header>
     <div class="header-container">
-        <button class="button">Зарегистрироваться</button>
-        <button class="button">Войти</button>
+        <button class="button" data-register>Зарегистрироваться</button>
+        <button class="button" data-login>Войти</button>
     </div>
 </header>
 
@@ -26,5 +26,16 @@
 <footer>
     <p class="text">Регулярное ведение личного дневника способствует: развитию осознанности; лучшему пониманию себя и окружающих; исцелению от внутренней боли и пережитых травм; структурированию мыслей; улучшению памяти; развитию навыка выделять важное и второстепенное; повышению самооценки; экспрессивности; развитию креативности и творческого потенциала; возможности полного самовыражения. Не стесняться быть самим собой</p>
 </footer>
+
+<script>
+    const loginButton = document.querySelector('[data-login]');
+    loginButton.addEventListener('click', () => {
+        window.location.href = '../html/login.html';
+    });
+    const registerButton = document.querySelector('[data-register]');
+    registerButton.addEventListener('click', () => {
+        window.location.href = '../html/register.html';
+    });
+</script>
 </body>
 </html>

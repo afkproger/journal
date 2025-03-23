@@ -1,4 +1,3 @@
-
 let notes = [
     {
         id: 1,
@@ -35,10 +34,10 @@ function loadNotes() {
         const noteElement = document.createElement('div');
         noteElement.className = 'note-item';
         noteElement.innerHTML = `
-                    <h3>${note.title}</h3>
-                    <p class="note-date">${note.date}</p>
-                    <p class="note-description">${note.description}</p>
-                `;
+            <h3>${note.title}</h3>
+            <p class="note-date">${note.date}</p>
+            <p class="note-description">${note.description}</p>
+        `;
         noteElement.addEventListener('click', () => openNote(note.id));
         notesList.appendChild(noteElement);
     });
@@ -48,12 +47,11 @@ function openNote(id) {
     const note = notes.find(n => n.id === id);
     if (note) {
         currentNoteId = id;
-        document.getElementById('editor-title').textContent = note.title;
+        document.getElementById('note-title').value = note.title;
         document.getElementById('note-content').innerHTML = note.content;
     }
 }
 
-// Функция для добавления записи
 function addNote() {
     const newNote = {
         id: notes.length + 1,
@@ -64,41 +62,37 @@ function addNote() {
     };
     notes.push(newNote);
     loadNotes();
-    openNote(newNote.id); // Открываем новую запись
+    openNote(newNote.id);
 }
 
-// Функция для сохранения записи
 function saveNote() {
     if (currentNoteId !== null) {
         const note = notes.find(n => n.id === currentNoteId);
         if (note) {
+            note.title = document.getElementById('note-title').value;
             note.content = document.getElementById('note-content').innerHTML;
             alert('Запись сохранена!');
+            loadNotes();
         }
+    } else {
+        alert('Нет активной записи для сохранения.');
     }
 }
 
-// Функция для удаления записи
 function deleteNote() {
     if (currentNoteId !== null) {
         notes = notes.filter(n => n.id !== currentNoteId);
         currentNoteId = null;
         loadNotes();
-        document.getElementById('editor-title').textContent = 'Выберите запись';
+        document.getElementById('note-title').value = '';
         document.getElementById('note-content').innerHTML = '';
+    } else {
+        alert('Нет активной записи для удаления.');
     }
 }
 
-// Функции для работы с текстом
 function formatText(command) {
     document.execCommand(command, false, null);
-}
-
-function insertImage() {
-    const url = prompt('Введите URL изображения:');
-    if (url) {
-        document.execCommand('insertImage', false, url);
-    }
 }
 
 function insertLink() {
@@ -111,3 +105,46 @@ function insertLink() {
 function clearFormatting() {
     document.execCommand('removeFormat', false, null);
 }
+
+const dropZone = document.getElementById('drop-zone');
+const noteContent = document.getElementById('note-content');
+
+dropZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    dropZone.classList.add('dragover');
+});
+
+dropZone.addEventListener('dragleave', () => {
+    dropZone.classList.remove('dragover');
+});
+
+dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    const files = e.dataTransfer.files;
+    handleFiles(files);
+});
+
+function handleFiles(files) {
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        if (file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                noteContent.appendChild(img);
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+}
+
+dropZone.addEventListener('click', () => {
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+    fileInput.multiple = true;
+    fileInput.onchange = (e) => handleFiles(e.target.files);
+    fileInput.click();
+});

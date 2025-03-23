@@ -13,9 +13,9 @@
 <body>
 <header>
   <div class="header-container">
-    <p class="journal-text" data-header-workspace > journal </p>
-    <button class="button" data-header-chats >Чаты</button>
-    <button class="button" data-header-notes >Записи</button>
+    <p class="journal-text" data-header-workspace>journal</p>
+    <button class="button" data-header-chats>Чаты</button>
+    <button class="button" data-header-notes>Записи</button>
     <button class="button" data-header-profile>Личный кабинет</button>
   </div>
 </header>
@@ -29,14 +29,16 @@
   </div>
 
   <div class="notes-editor">
-    <h2 id="editor-title">Выберите запись</h2>
     <div class="toolbar">
+      <input type="text" id="note-title" class="toolbar-button" placeholder="Название записи">
       <button class="toolbar-button" onclick="formatText('bold')"><b>B</b></button>
       <button class="toolbar-button" onclick="formatText('italic')"><i>I</i></button>
       <button class="toolbar-button" onclick="formatText('underline')"><u>U</u></button>
-      <button class="toolbar-button" onclick="insertImage()">📷</button>
       <button class="toolbar-button" onclick="insertLink()">🔗</button>
       <button class="toolbar-button" onclick="clearFormatting()">❌</button>
+    </div>
+    <div class="drop-zone" id="drop-zone">
+      Перетащите сюда изображения или нажмите, чтобы выбрать файлы.
     </div>
     <div id="note-content" contenteditable="true">
     </div>
@@ -46,7 +48,6 @@
     </div>
   </div>
 </div>
-
 <script src="../js/note.js"></script>
 <script src="../js/navigation.js"></script>
 </body>

@@ -13,32 +13,19 @@
 <div class="right">
     <div class="form-container">
         <h2>Регистрация</h2>
-        <form>
-            <input type="text" placeholder="Имя" required>
-            <input type="text" placeholder="Фамилия" required>
-            <input type="text" placeholder="Отчество" required>
-            <input type="text" placeholder="Логин" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Пароль" required id="pass">
+        <form id="form" data-validate-password="true" >
+            <input type="text" name="first_name" placeholder="Имя" required>
+            <input type="text" name="last_name" placeholder="Фамилия" required>
+            <input type="text" name="middle_name" placeholder="Отчество" required>
+            <input type="text"  name="username" placeholder="Логин" required>
+            <input type="email"  name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Пароль" required id="pass">
             <input type="password" placeholder="Повторите пароль" required id="repass">
             <button type="submit" class="button">Зарегистрироваться</button>
         </form>
     </div>
 </div>
-<script>
-    document.querySelector('form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const pass = document.getElementById("pass").value;
-        const repass = document.getElementById("repass").value;
-
-        if (pass === repass) {
-            window.location.href = "../html/login.html";
-        } else {
-            alert("Пароли не совпадают");
-            document.getElementById("pass").style.border = "1px solid red";
-            document.getElementById("repass").style.border = "1px solid red";
-        }
-    });
+<script src="../js/register.js">
 </script>
 </body>
 </html>

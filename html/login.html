@@ -15,17 +15,13 @@
     <div class="form-container">
         <h2>Вход</h2>
         <form>
-            <input type="text" placeholder="Лолин" required>
-            <input type="password" placeholder="Пароль" required>
+            <input type="text" name = "username" placeholder="Лолин" required>
+            <input type="password" name = "password" placeholder="Пароль" required>
             <button class="button" type="submit">Войти</button>
         </form>
     </div>
 </div>
-<script>
-    document.querySelector('form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        window.location.href = '../html/workspace.html';
-    });
+<script src="../js/login.js">
 </script>
 </body>
 </html>
